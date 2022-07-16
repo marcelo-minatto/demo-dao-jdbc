@@ -1,7 +1,9 @@
+//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
 package application;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -17,7 +19,7 @@ public class Program {
 		/*Department obj = new Department(1,"Books");
 		
 		Seller seller = new Seller(21, "Bob", "bobgmail.com", new Date(), 3000.0, obj);*/
-		
+		Scanner sc = new Scanner(System.in);
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
 		System.out.println("==== TESTE 1: seller findById ====");
@@ -50,6 +52,14 @@ public class Program {
 		seller.setName("Martha Waine");
 		sellerDao.update(seller);
 		System.out.println("Update completed");
+		
+		System.out.println("\n==== TESTE 6: seller delete ====");
+		System.out.println("Enter id for delete test: ");
+		int id = sc.nextInt();
+		sellerDao.deletById(id);
+		System.out.println("Delete completed");
+		
+	sc.close();
 	
 	}
 }
